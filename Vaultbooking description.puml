@@ -1,0 +1,32 @@
+@startuml
+entity "Customer" as Customer {
+    *Customer_id
+    --
+    Name
+    Contacts
+    Adress
+}
+
+entity "Flat" as Flat {
+    *Flat_id
+    --
+    Rooms_count
+}
+
+entity "Vault" as Vault {
+    *Vault_id
+    --
+    Location
+}
+
+entity "Furniture" as Furniture {
+    *Furniture_id
+    --
+    Type
+    Price
+}
+
+Customer ||--|| Flat
+Flat }|--|| Vault
+Flat ||--{ Furniture
+@enduml
