@@ -26,7 +26,7 @@ entity "Furniture" as Furniture {
     Price
 }
 
-Customer ||--|| Flat
+Customer }|--|| Flat
 Flat }|--|| Vault
 Flat ||--{ Furniture
 @enduml
