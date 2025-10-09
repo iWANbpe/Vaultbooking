@@ -1,32 +1,60 @@
 @startuml
-entity "Customer" as Customer {
-    *Customer_id
-    --
-    Name
-    Contacts
-    Adress
+entity CustomerAdress {
+  **PK** CustomerAdress_id
+  --
+  City
+  Street
+  House_number
 }
 
-entity "Flat" as Flat {
-    *Flat_id
-    --
-    Rooms_count
+entity Contacts {
+  **PK** Phone_number
+  --
+  Email
 }
 
-entity "Vault" as Vault {
-    *Vault_id
-    --
-    Location
+entity Customer {
+  **PK** Customer_id
+  --
+  Name
+  **FK** Flat_id
+  **FK** CustomerAdress_id
+  **FK** Phone_number
 }
 
-entity "Furniture" as Furniture {
-    *Furniture_id
-    --
-    Type
-    Price
+entity Flat {
+  **PK** Flat_id
+  --
+  Rooms_count
+  Residents_count
+  **FK** Vault_id
 }
 
+entity Furniture {
+  **PK** Furniture_id
+  --
+  Type
+  Price
+  **FK** Flat_id
+}
+
+entity Vault {
+  **PK** Vault_id
+  --
+  **FK** Location_id
+}
+
+entity Location {
+  **PK** Location_id
+  --
+  Latitude
+  Longitude
+}
+
+CustomerAdress ||--|| Customer
+Contacts ||--|| Customer
 Customer }|--|| Flat
-Flat }|--|| Vault
 Flat ||--{ Furniture
+Flat }|--|| Vault
+Vault ||--|| Location
 @enduml
