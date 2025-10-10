@@ -33,7 +33,7 @@ entity Flat {
 entity Furniture {
   **PK** Furniture_id
   --
-  Type
+  Name
   Price
   **FK** Flat_id
 }
