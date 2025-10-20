@@ -17,7 +17,7 @@ public class Flat
 {
     public int flat_id; // PK
     public int rooms_count;
-    public int residents_count { get { return residents.Count; } }
+    public int residents_count;
     public int vault_id { get { return vault.vault_id; } } // FK
 
     public Vault vault;
