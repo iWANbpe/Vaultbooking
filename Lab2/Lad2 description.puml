@@ -1,0 +1,76 @@
+@startuml
+actor User as user
+actor Moderator as mod
+
+'User UC
+usecase "Watch Post" as UC1
+usecase "Interact with Post" as UC2
+    usecase "Live a react" as UC2.1
+    usecase "Comment" as UC2.2
+    usecase "Repost" as UC2.3
+    usecase "Report" as UC2.4
+    usecase "Save in playlist" as UC2.5
+usecase "Share playlis" as UC3
+usecase "Follow user" as UC4
+usecase "Log in as user" as UC5
+    usecase "Create new account" as UC5.1
+usecase "Make Post " as UC6
+usecase "Change of rec. algorithm" as UC7
+ usecase "Paste template" as UC7.1
+ usecase "Visual setting" as UC7.2
+ usecase "Write code" as UC7.3
+usecase "Share rec. alg. template" as UC8
+
+'mod UC
+usecase "Log In as Moderator" as UC9
+usecase "Manage Content" as UC10
+    usecase "Review Reported Post" as UC10.1
+    usecase "Add comm. notes" as UC10.2
+    usecase "Remove Post" as UC10.3
+    usecase "Approve Post" as UC10.4
+usecase "Manage Users" as UC11
+    usecase "Unban User" as UC11.1
+    usecase "Permanent Ban User" as UC11.2
+    usecase "Temporary Ban User" as UC11.3
+
+'user connetcions
+user --> UC1
+user --> UC2
+user --> UC3
+user --> UC4
+user --> UC5
+user --> UC6
+user --> UC7
+user --> UC8
+UC2.1 --> UC2: extends
+UC2.2 --> UC2: extends
+UC2.3 --> UC2: extends
+UC2.4 --> UC2: extends
+UC2.5 --> UC2: extends
+UC5.1 --> UC5: extends
+UC7.1 --> UC7: extends
+UC7.2 --> UC7: extends
+UC7.3 --> UC7: extends
+UC2 ..> UC1: use
+UC3 ..> UC5: use
+UC4 ..> UC5: use
+UC6 ..> UC5: use
+UC7 ..> UC5: use
+UC8 ..> UC5: use
+UC7.1 ..> UC8: use
+
+'mod connections
+mod --> UC9
+mod --> UC10
+mod --> UC11
+UC10.1 --> UC10: extends
+UC10.2 --> UC10: extends
+UC10.3 --> UC10: extends
+UC10.4 --> UC10: extends
+UC11.1 --> UC11: extends
+UC11.2 --> UC11: extends
+UC11.3 --> UC11: extends
+UC10 ..> UC9: use
+UC11 ..> UC9: use
+UC10.1 ..> UC2.4: use
+@enduml
