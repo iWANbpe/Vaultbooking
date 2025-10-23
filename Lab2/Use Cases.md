@@ -1,28 +1,29 @@
-Use Cases:
-UC1: "Watch Post"
-UC2: "Interact with Post"
-UC2.1: "Live a react"
-UC2.2: "Comment"
-UC2.3: "Repost"
-UC2.4: "Report"
-UC2.5: "Save in playlist"
-UC3: "Share playlis"
-UC4: "Follow user"
-UC5: "Log in as user"
-UC5.1: "Create new account"
-UC6: "Make Post "
-UC7: "Change of rec. algorithm"
-UC7.1: "Paste template"
-UC7.2: "Visual setting"
-UC7.3: "Write code"
-UC8: "Share rec. alg. template"
-UC9: "Log In as Moderator"
-UC10: "Manage Content"
-UC10.1: "Review Reported Post"
-UC10.2: "Add comm. notes"
-UC10.3: "Remove Post"
-UC10.4: "Approve Post"
-UC11: "Manage Users"
-UC11.1: "Unban User"
-UC11.2: "Permanent Ban User"
-UC11.3: "Temporary Ban User"
+# Use Cases
+
+- **UC1:** Watch Post
+- **UC2:** Interact with Post
+  - **UC2.1:** Live a react
+  - **UC2.2:** Comment
+  - **UC2.3:** Repost
+  - **UC2.4:** Report
+  - **UC2.5:** Save in playlist
+- **UC3:** Share playlist
+- **UC4:** Follow user
+- **UC5:** Log in as user
+  - **UC5.1:** Create new account
+- **UC6:** Make Post
+- **UC7:** Change of rec. algorithm
+  - **UC7.1:** Paste template
+  - **UC7.2:** Visual setting
+  - **UC7.3:** Write code
+- **UC8:** Share rec. alg. template
+- **UC9:** Log in as Moderator
+- **UC10:** Manage Content
+  - **UC10.1:** Review Reported Post
+  - **UC10.2:** Add comm. notes
+  - **UC10.3:** Remove Post
+  - **UC10.4:** Approve Post
+- **UC11:** Manage Users
+  - **UC11.1:** Unban User
+  - **UC11.2:** Permanent Ban User
+  - **UC11.3:** Temporary Ban User
