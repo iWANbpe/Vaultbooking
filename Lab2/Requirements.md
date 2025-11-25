@@ -9,6 +9,6 @@
 - **REQ6:** Moderation of content
 
 ## Non-Functional Requirements
-- **NFR1:** Security
-- **NFR2:** Low latency
+- **NFR1:** The system must not share any user information with any other services
+- **NFR2:** Content feed must be loaded in less than 5 seconds on smartphones (via a good internet connection)
 - **NFR3:** Obey the British laws (impossible)
