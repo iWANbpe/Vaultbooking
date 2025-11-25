@@ -9,8 +9,11 @@ usecase "Interact with Post" as UC2
     usecase "Comment" as UC2.2
     usecase "Repost" as UC2.3
     usecase "Report" as UC2.4
-    usecase "Save in playlist" as UC2.5
-usecase "Share playlis" as UC3
+    usecase "Save in Collection" as UC2.5
+usecase "Interact with collections" as UC3
+    usecase "Create New Collection" as UC3.1
+    usecase "Share Collection" as UC3.2
+    usecase "Delete Collection" as UC3.3
 usecase "Follow user" as UC4
 usecase "Log in as user" as UC5
     usecase "Create new account" as UC5.1
@@ -47,11 +50,15 @@ UC2.2 --> UC2: extends
 UC2.3 --> UC2: extends
 UC2.4 --> UC2: extends
 UC2.5 --> UC2: extends
+UC3.1 --> UC3: extends
+UC3.2 --> UC3: extends
+UC3.3 --> UC3: extends
 UC5.1 --> UC5: extends
 UC7.1 --> UC7: extends
 UC7.2 --> UC7: extends
 UC7.3 --> UC7: extends
 UC2 ..> UC1: use
+UC2.5 ..> UC3: use
 UC3 ..> UC5: use
 UC4 ..> UC5: use
 UC6 ..> UC5: use

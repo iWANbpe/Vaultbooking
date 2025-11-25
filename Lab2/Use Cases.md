@@ -6,8 +6,11 @@
   - **UC2.2:** Comment
   - **UC2.3:** Repost
   - **UC2.4:** Report
-  - **UC2.5:** Save in playlist
-- **UC3:** Share playlist
+  - **UC2.5:** Save in collection
+- **UC3:** Interact with collections
+  - **UC3.1:** Create new collection
+  - **UC3.2:** Share collection
+  - **UC3.3:** Delete collection
 - **UC4:** Follow user
 - **UC5:** Log in as user
   - **UC5.1:** Create new account
