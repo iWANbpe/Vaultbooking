@@ -1,0 +1,53 @@
+@startuml
+title Sequence Diagram: Optimized Content Moderation Workflow
+
+actor User
+participant PostService as PS
+participant NotificationService as NS
+participant ContentValidator as CV
+participant ModerationQueue as MQ
+actor Moderator
+
+User -> PS: 1. Submit Post
+PS -> CV: 2. Validate Content
+CV -> PS: 3. Send validation result
+
+alt Content is Safe
+    PS -> PS: 4. Set status: Approved
+    PS -> NS: 5. Notify approval
+    NS -> User: 6. Notify user (post is approved)
+    User -> PS: 7. Publish Post
+
+
+else Content needs Moderation
+    PS -> MQ: 4. Add to moderation queue
+    Moderator -> MQ: 5. Request next post for review
+    MQ -> Moderator: 6. Send post for review
+    Moderator -> PS: 7. Send moderation result
+
+    alt Moderation Result: Approved
+        PS -> PS: 8. Set status: Approved
+        PS -> NS: 9. Notify approval
+        NS -> User: 10. Notify user (post is approved)
+        User -> PS: 11. Publish Post
+    end
+
+    alt Moderation Result: Approved with Restrictions
+        PS -> PS: 8. Set status: Restricted
+        PS -> NS: 9. Notify approval with restrictions
+        NS -> User: 10. Notify user (post is approved with restrictions)
+        
+        opt User chooses to Publish with Restrictions
+            User -> PS: 11. Publish with restrictions
+        end
+        
+    end
+
+    alt Moderation Result: Rejected
+        PS -> PS: 8. Set status: Rejected
+        PS -> NS: 9. Notify rejection
+        NS -> User: 10. Notify user (post is rejected)
+        
+        end
+    end
+@enduml
