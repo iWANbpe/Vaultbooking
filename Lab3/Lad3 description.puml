@@ -1,5 +1,4 @@
 @startuml
-title Sequence Diagram: Optimized Content Moderation Workflow
 
 actor User
 participant PostService as PS
