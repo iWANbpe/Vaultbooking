@@ -1,0 +1,43 @@
+@startuml
+|Content creator|
+start
+repeat :Submit Post;
+<<acceptEvent>> :Wait for check result;
+repeat while (Approved?) is (Rejected)
+:Publish Post;
+|Content creator|
+
+|Server|
+<<object>>:Post;
+:Analyze Post;
+:Determine target audience;
+<<sendSignal>> :Add to content feed;
+-[hidden]->
+|Server|
+
+|Viewer|
+<<acceptEvent>> :Receive content;
+:View Post;
+
+if (Leave feedback?) then (Yes)
+  :Leave feedback;
+else (No)
+endif
+<<object>>:User Interaction Info;
+|Viewer|
+
+|Server|
+:Collect interaction info;
+:Generate Statistic;
+<<object>>:Post Statistic;
+<<sendSignal>>:Send Statistic;
+-[hidden]->
+|Server|
+
+|Content creator|
+<<acceptEvent>> :Receive Statistic;
+:Analyze Statistic;
+|Content creator|
+
+stop
+@enduml
