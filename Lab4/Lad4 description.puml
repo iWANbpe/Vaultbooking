@@ -1,14 +1,19 @@
 @startuml
 |Content creator|
 start
-repeat :Submit Post;
-<<acceptEvent>> :Wait for check result;
-repeat while (Approved?) is (Rejected)
-:Publish Post;
-|Content creator|
-
-|Server|
+:Submit New/Edited Post;
 <<object>>:Post;
+<<sendSignal>>:Send Post to the moderation;
+<<acceptEvent>> :Wait for check result;
+if (Moderation result?) then (Rejected)
+  <<sendSignal>>:Send Rejection Notification;
+  stop
+  |Content creator|
+else (Approved)
+|Server|
+:Publish Post;
+endif
+
 :Analyze Post;
 :Determine target audience;
 <<sendSignal>> :Add to content feed;
@@ -16,13 +21,14 @@ repeat while (Approved?) is (Rejected)
 |Server|
 
 |Viewer|
-<<acceptEvent>> :Receive content;
+<<acceptEvent>> :Generate Post Queue;
 :View Post;
 
 if (Leave feedback?) then (Yes)
   :Leave feedback;
 else (No)
 endif
+:Generate User Interaction Info;
 <<object>>:User Interaction Info;
 |Viewer|
 
